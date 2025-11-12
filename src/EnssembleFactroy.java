@@ -1,6 +1,6 @@
 public interface EnssembleFactroy {
 
-    public Ensemble CreateEnsemble(String type, String eID , String eName );
+    public Ensemble CreateEnsemble( String eID , String eName );
 
 
 }
