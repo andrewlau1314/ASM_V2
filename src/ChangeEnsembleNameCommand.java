@@ -1,7 +1,7 @@
 public class ChangeEnsembleNameCommand implements Command {
     private EnsembleManager manager;
     private String newName;
-    private EnsembleMemento before;
+        private EnsembleMemento before;
     private EnsembleMemento after;
 
     public ChangeEnsembleNameCommand(EnsembleManager manager, String newName) {

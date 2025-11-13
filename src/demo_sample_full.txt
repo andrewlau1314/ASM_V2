@@ -1,0 +1,58 @@
+c
+orchestra
+E001
+SYO
+s
+E001
+a
+m001, Chole Chua
+1
+a
+m002, Mischa Maisky
+2
+c
+jazz
+E102
+BLUE NOTE
+s
+E102
+a
+m101, Herbie Hancock
+1
+a
+m102, John Coltrane
+2
+a
+m103, Buddy Rich
+3
+s
+E001
+a
+m003, Joshua Bell
+1
+se
+m
+m001
+2
+se
+d
+m001
+se
+cn
+HSO
+se
+l
+u
+u
+u
+u
+u
+u
+u
+u
+se
+r
+r
+se
+x
+

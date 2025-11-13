@@ -94,7 +94,11 @@ public class Main {
     private static void handleModifyInstrument(EnsembleManager manager, Invoker invoker, Scanner sc) {
         System.out.print("Please input musician ID:- ");
         String mID = sc.nextLine().trim();
-        System.out.print("Instrument (enter numeric role):- ");
+        if (manager.getCurrentEnsemble() instanceof OrchestraEnsemble ) {
+            System.out.print("Instrument (1 = violinist | 2 = cellist ):- ");
+        }else  if (manager.getCurrentEnsemble() instanceof JazzBandEnsemble) {
+            System.out.print("Instrument (1 = pianist | 2 = saxophonist | 3 = drummer ):- ");
+        }
         int role = 0;
         try { role = Integer.parseInt(sc.nextLine().trim()); } catch (Exception ex) { role = 0; }
         String roleName = Integer.toString(role);
@@ -107,6 +111,7 @@ public class Main {
         ModifyMusicianInstrumentCommand cmd = new ModifyMusicianInstrumentCommand(manager, mID, role);
         String desc = "Modify musician's instrument, " + mID + ", " + roleName;
         invoker.executeCommand(cmd, desc, true);
+        System.out.println("Instrument is updated.");
     }
 
     private static void handleDelete(EnsembleManager manager, Invoker invoker, Scanner sc) {

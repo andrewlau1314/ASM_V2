@@ -9,7 +9,9 @@ public class EnsembleManager {
 
     public void addEnsemble(Ensemble e) {
         ensembles.add(e);
-        setCurrentEnsembleById(e.getEnsembleID());
+        // do not change current ensemble automatically when adding a new ensemble
+        // setCurrentEnsembleById(e.getEnsembleID());
+        // System.out.println("Current ensemble is changed to" + current.getEnsembleID());
 
     }
 
