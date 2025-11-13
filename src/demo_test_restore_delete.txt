@@ -1,0 +1,23 @@
+c
+orchestra
+E001
+SYO
+s
+E001
+a
+m001, Alice
+1
+d
+m001
+c
+orchestra
+E002
+BAND2
+s
+E002
+u
+s
+E001
+se
+x
+

@@ -7,13 +7,21 @@ public class AddMusicianCommand implements Command{
         this.CreateMusician.setName(mName);
     }
 
+    // constructor with role parameter
+    public AddMusicianCommand(EnsembleManager manager, String mID, String mName, int role ){
+        this.manager = manager;
+        this.CreateMusician = new Musician(mID);
+        this.CreateMusician.setName(mName);
+        this.CreateMusician.setRole(role);
+    }
+
     @Override
     public void execute() {
         //get the current ensemble and add the musician to it
         Ensemble currentEnsemble = manager.getCurrentEnsemble();
         if (currentEnsemble != null) {
             manager.addMusicianToCurrent(CreateMusician);
-            System.out.println("Musician " + CreateMusician.getMusicianID() + " added to Ensemble " + currentEnsemble.getEnsembleID());
+            System.out.println("Musician is added.");
         } else {
             System.out.println("No current ensemble selected. Cannot add musician.");
 

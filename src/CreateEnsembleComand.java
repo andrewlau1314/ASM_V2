@@ -1,3 +1,5 @@
+import java.util.Objects;
+
 public class CreateEnsembleComand implements Command{
 
 
@@ -15,17 +17,21 @@ public class CreateEnsembleComand implements Command{
     @Override
     public void execute() {
         //Find the ensemble Type
-        if (type == "jazz"){
+        if (type.equalsIgnoreCase("j") || type.equalsIgnoreCase("jazz")){
             EnssembleFactroy jazzFactory = new JazzBandEnsembleFactory();
-            createdEnsemble =jazzFactory.CreateEnsemble( eID , eName );
-        } else if (type == "orchestra"){
+            createdEnsemble = jazzFactory.CreateEnsemble(eID, eName);
+            if (createdEnsemble != null) createdEnsemble.setName(eName);
+        } else if (type.equalsIgnoreCase("o") || type.equalsIgnoreCase("orchestra")){
             EnssembleFactroy orchestraFactory = new OrchestraEnsembleFactory();
-            createdEnsemble = orchestraFactory.CreateEnsemble( eID , eName );
+            createdEnsemble = orchestraFactory.CreateEnsemble(eID, eName);
+            if (createdEnsemble != null) createdEnsemble.setName(eName);
         } else {
             System.out.println("Invalid ensemble type: " + type);
         }
-        // add the ensemble to the manager ensembles list
-        manager.addEnsemble(createdEnsemble);
+        // add the ensemble to the manager ensembles list only if created
+        if (createdEnsemble != null) {
+            manager.addEnsemble(createdEnsemble);
+        }
         // output the result
         if (createdEnsemble != null){
             if (createdEnsemble instanceof JazzBandEnsemble) {

@@ -9,6 +9,8 @@ public class EnsembleManager {
 
     public void addEnsemble(Ensemble e) {
         ensembles.add(e);
+        setCurrentEnsembleById(e.getEnsembleID());
+
     }
 
     public void removeEnsemble(String id) {
@@ -32,6 +34,11 @@ public class EnsembleManager {
         if (current != null) current.addMusician(m);
     }
 
+    public void addMusicianToEnsemble(String ensembleId, Musician m) {
+        Ensemble en = getEnsembleById(ensembleId);
+        if (en != null) en.addMusician(m);
+    }
+
     public void removeMusicianFromCurrent(String musicianId) {
         if (current == null) return;
         Musician m = null;
@@ -49,6 +56,25 @@ public class EnsembleManager {
         }else  {
             System.out.println("Musician with ID " + musicianId + " not found in current ensemble.");
         }
+    }
+
+    public boolean removeMusicianFromEnsemble(String ensembleId, String musicianId) {
+        Ensemble en = getEnsembleById(ensembleId);
+        if (en == null) return false;
+        Musician m = null;
+        Iterator<Musician> it = en.getMusicians();
+        while (it.hasNext()) {
+            Musician temp = it.next();
+            if (temp.getMusicianID().equals(musicianId)) {
+                m = temp;
+                break;
+            }
+        }
+        if (m != null) {
+            en.dropMusician(m);
+            return true;
+        }
+        return false;
     }
 
 //    public void modifyMusicianInstrument(String musicianId, String instrument) {

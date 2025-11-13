@@ -1,0 +1,39 @@
+c
+orchestra
+E001
+SYO
+c
+jazz
+E102
+BLUE NOTE
+s
+E001
+a
+m001, Chole Chua
+1
+a
+m002, Mischa Maisky
+2
+se
+a
+m003, Joshua Bell
+1
+se
+m
+m001
+2
+se
+d
+m001
+se
+cn
+HSO
+se
+l
+u
+u
+se
+r
+se
+x
+
